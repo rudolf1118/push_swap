@@ -9,7 +9,7 @@ int main (int argc, char **argv)
         return (1);
     else if (argc == 2)
         argv = ft_split(argv[1], ' ');
-    stack_initial(&a, argv + 1)  
+    stack_initial(&a, argv + 1, argv == 2); 
     if (!sorted_stack(a))
     {
         if (stack_len(a) == 2)
@@ -19,7 +19,5 @@ int main (int argc, char **argv)
         else
             push_swap(&a, &b);
     }
-
-
     freestack(&a);
 }

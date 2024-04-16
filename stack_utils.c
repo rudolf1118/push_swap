@@ -21,7 +21,7 @@ long ft_atol (const char *str)
         i++;
     else if (str[i] == '-')
     {
-        minu *= -1;
+        minus *= -1;
         i++;
     }
     while (str[i] >= '0' && str[i] <= '9')
@@ -29,43 +29,16 @@ long ft_atol (const char *str)
     return (minus * num);
 }
 
-
 t_stack_node *find_last_node(t_stack_node *node)
 {
     t_stack_node *head;
 
+    head = node;
     if (!head)
         return (NULL);
     while (head->next != NULL)
         head = head->next;
     return (head);
-}
-
-void append_node (t_stack_node **stack, int numb)
-{
-    t_stack_node *node;
-    t_stack_node *last;
-
-    if (!stack)
-        return ;
-    node = malloc(sizeof(t_stack_node));
-    if (!node)
-        return ;
-    node->next = NULL;
-    node->number = numb;
-    if (!*stack)
-    {
-        *stack = node;
-        node ->prev = NULL;
-    }
-    else
-    {
-        last = find_last_node(*stack);
-        last->next = node;
-        node->prev = last;
-        node->next = NULL;   
-    }
-
 }
 
 int stack_len (t_stack_node *node)
@@ -78,4 +51,29 @@ int stack_len (t_stack_node *node)
         node = node->next;
     }
     return (i);
+}
+
+void append_node (t_stack_node **head, int numb)
+{
+    t_stack_node *temp;
+    t_stack_node *last;
+
+    if (!head)
+        return ;
+    temp = malloc(sizeof(t_stack_node));
+    if (!temp)
+        return ;
+    temp->number = numb;
+    temp->next = NULL;
+    if (!(*head))
+    {
+        *head = temp;
+        temp->prev = NULL;
+    }	
+    else
+	{
+		last = find_last_node(*head);
+		last->next = temp;
+		temp->prev = last;
+	}
 }
