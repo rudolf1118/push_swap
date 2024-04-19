@@ -20,9 +20,10 @@ int main (int argc, char **argv) {
             sa(&a, 0);
         else if (stack_len(a) == 3)
             tiny_sort(&a);
-        print_numbers(a);
         else
             push_swap(&a, &b);
+        print_numbersa(a);
+        print_numbersb(b);
     }
     free_stack(&a);
 }

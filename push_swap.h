@@ -4,14 +4,17 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 typedef struct   s_stack_node {
     int number;
     int current_position;
     int final_index;
     int push_price;
+    bool above_middle;
+    bool cheapest;
     struct s_stack_node *next;
     struct s_stack_node *prev;
-    struct s_stack_node *this_node;
+    struct s_stack_node *target;
 } t_stack_node;
 
 void swap(t_stack_node **head);
@@ -41,8 +44,17 @@ void	rr(t_stack_node **a, t_stack_node **b, bool checker);
 void	pa(t_stack_node **a, t_stack_node **b, bool checker);
 void	pb(t_stack_node **b, t_stack_node **a, bool checker);
 void tiny_sort(t_stack_node **a);
+void	push_swap(t_stack_node **a, t_stack_node **b);
+int find_min(t_stack_node *a);
+int find_max (t_stack_node *a);
+t_stack_node  *find_smallest(t_stack_node *stack);
+void setting_target(t_stack_node *a, t_stack_node *b);
+void setting_current_position (t_stack_node *node);
+void setting_price (t_stack_node *a, t_stack_node *b);
+void	init_nodes(t_stack_node *a, t_stack_node *b);
 // DELETE AT THE END
-void print_numbers(t_stack_node *a);
+void print_numbersa(t_stack_node *a);
+void print_numbersb(t_stack_node *b);
 // DELETE AT THE END
 
 #endif
