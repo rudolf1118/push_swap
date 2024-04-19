@@ -19,7 +19,6 @@ void rotate(t_stack_node **head)
     (*head)->prev = NULL;
 }
 
-
 void	ra(t_stack_node **a, bool checker)
 {
 	rotate(a);

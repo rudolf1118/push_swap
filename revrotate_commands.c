@@ -15,7 +15,6 @@ void reverse_rotate(t_stack_node **head)
     *head = last;
 }
 
-
 void	rra(t_stack_node **a, bool checker)
 {
 	reverse_rotate(a);
