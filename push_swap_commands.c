@@ -24,7 +24,7 @@ void	push_swap(t_stack_node **a, t_stack_node **b)
 //        untilthreefroma(a, b);
 // //   }
 //        tiny_sort(a);
-//        setting_current_position(*b);
+//        setting_current_position(*b);ls
 //        setting_price(*a,*b);
 ////        while (*b)
 ////        {
