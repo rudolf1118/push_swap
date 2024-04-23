@@ -1,18 +1,19 @@
 #include "push_swap.h"
 
-void reverse_rotate(t_stack_node **head)
+void reverse_rotate(t_stack_node **stack)
 {
-    t_stack_node *temp;
-    t_stack_node *last;
-    
-    temp = (*head)->next;
-    last = find_last_node(*head);
+    t_stack_node	*last;
+    int				len;
+
+    len = stack_len(*stack);
+    if (NULL == *stack || NULL == stack || 1 == len)
+        return ;
+    last = find_last_node(*stack);
     last->prev->next = NULL;
-    last->next = (*head);
+    last->next = *stack;
     last->prev = NULL;
-    temp->prev = last;
+    *stack = last;
     last->next->prev = last;
-    *head = last;
 }
 
 void	rra(t_stack_node **a, bool checker)

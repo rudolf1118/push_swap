@@ -11,7 +11,7 @@ void	push(t_stack_node **dest, t_stack_node **src)
     if (*src)
         (*src)->prev = NULL;
     node_to_push->prev = NULL;
-    if (NULL == *dest)
+    if (!(*dest))
     {
         *dest = node_to_push;
         node_to_push->next = NULL;

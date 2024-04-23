@@ -27,7 +27,7 @@ int stack_len (t_stack_node *node);
 t_stack_node *find_last_node(t_stack_node *node);
 long ft_atol (const char *str);
 void	stack_initial(t_stack_node **a, char **arg, bool checker);
-static void	push(t_stack_node **dest, t_stack_node **src);
+void	push(t_stack_node **dest, t_stack_node **src);
 void	free_stack(t_stack_node **stack);
 void	free_argv(char **argv);
 int	error_syntax(char *str_nbr);
@@ -52,6 +52,10 @@ void setting_target(t_stack_node *a, t_stack_node *b);
 void setting_current_position (t_stack_node *node);
 void setting_price (t_stack_node *a, t_stack_node *b);
 void	init_nodes(t_stack_node *a, t_stack_node *b);
+void rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node);
+void moving (t_stack_node **a, t_stack_node **b);
+void finish(t_stack_node **stack, t_stack_node *top, char name);
+
 // DELETE AT THE END
 void print_numbersa(t_stack_node *a);
 void print_numbersb(t_stack_node *b);

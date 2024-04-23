@@ -1,22 +1,19 @@
 #include "push_swap.h"
 
-void rotate(t_stack_node **head)
+void rotate(t_stack_node **stack)
 {
-    t_stack_node *temp;
-    t_stack_node *last;
-    int len;
+    t_stack_node	*last_node;
+    int				len;
 
-    len = stack_len(*head);
-	if (head == NULL || *head == NULL || len == 1)
-		return ;
-    temp = (*head)->next;
-    last = find_last_node(*head);
-    last->next = *head;
-    (*head)->prev = last;
-    (*head)->next = NULL;
-    (*head)->prev = last;
-    (*head) = temp;
-    (*head)->prev = NULL;
+    len = stack_len(*stack);
+    if (NULL == stack || NULL == *stack || 1 == len)
+        return ;
+    last_node = find_last_node(*stack);
+    last_node->next = *stack;
+    *stack = (*stack)->next;
+    (*stack)->prev = NULL;
+    last_node->next->prev = last_node;
+    last_node->next->next = NULL;
 }
 
 void	ra(t_stack_node **a, bool checker)

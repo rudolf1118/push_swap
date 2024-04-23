@@ -1,4 +1,5 @@
 #include "push_swap.h"
+
 void untilthreefroma(t_stack_node **a, t_stack_node **b)
 {
     int len;
@@ -8,35 +9,36 @@ void untilthreefroma(t_stack_node **a, t_stack_node **b)
         pb(b, a, false);
 }
 
+
+void casewithlenfive(t_stack_node **a, t_stack_node **b)
+{
+    while (stack_len(*a) > 3)
+    {
+        init_nodes(*a, *b);
+        finish(a, find_smallest(*a), 'a');
+        pb(b, a, false);
+    }
+}
 void	push_swap(t_stack_node **a, t_stack_node **b)
 {
-//    untilthreefroma(a, b);
-//    tiny_sort(a);
+    t_stack_node *smallest;
 
-//    t_stack_node *smallest;
-    int len_a;
-//
-   len_a = stack_len(*a);
-////    if (lenofa == 5)
-////        handle_five(a,b);
-// //   else
-// //   {
-//        untilthreefroma(a, b);
-// //   }
-//        tiny_sort(a);
-//        setting_current_position(*b);ls
-//        setting_price(*a,*b);
-////        while (*b)
-////        {
-////
-////        }
-
-        while (len_a-- > 3)
-            pb(b, a, false);
+    if (stack_len(*a) == 5)
+        casewithlenfive(a, b);
+    else
+        untilthreefroma(a, b);
     tiny_sort(a);
     while (*b)
     {
         init_nodes(*a, *b);
+        moving(a, b);
     }
     setting_current_position(*a);
+    smallest = find_smallest(*a);
+    if (smallest->above_middle)
+        while (*a != smallest)
+            ra(a, false);
+    else
+        while (*a != smallest)
+            rra(a, false);
 }

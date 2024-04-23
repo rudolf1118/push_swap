@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 int arenotsingleinstack(t_stack_node *head, int number) {
-    if (NULL == head)
+    if (!head)
         return (0);
     while (head)
     {
@@ -30,7 +30,6 @@ void	stack_initial(t_stack_node **a, char **arg, bool checker)
 		append_node(a, (int)numb);
 		i++;
 	}
-    printf("checker = %d\n", checker);
     if (checker)
         free_argv(arg);
 }

@@ -1,6 +1,5 @@
 #include "push_swap.h"
 
-
 void setting_target(t_stack_node *a, t_stack_node *b) {
     t_stack_node *current_a;
     t_stack_node *target_node;
@@ -56,7 +55,7 @@ void	setting_cheapest(t_stack_node *b)
     long			best_match_value;
     t_stack_node	*best_match_node;
 
-    if (NULL == b)
+    if (!b)
         return ;
     best_match_value = LONG_MAX;
     while (b)
@@ -68,7 +67,7 @@ void	setting_cheapest(t_stack_node *b)
         }
         b = b->next;
     }
-    best_match_node->cheapest = true;
+    best_match_node->cheapest = 1;
 }
 
 void setting_price (t_stack_node *a, t_stack_node *b)
@@ -98,6 +97,5 @@ void	init_nodes(t_stack_node *a, t_stack_node *b)
     setting_current_position(b);
     setting_target(a, b);
     setting_price(a, b);
-    setting_cheapest(a);
-
+    setting_cheapest(b);
 }
