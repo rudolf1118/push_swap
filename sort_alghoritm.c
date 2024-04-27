@@ -13,12 +13,11 @@ int sorted_stack (t_stack_node *a)
     return (1);
 }
 
-int find_max (t_stack_node *a)
+int find_max(t_stack_node *a)
 {
     int maximum;
 
     maximum = a->number;
-
     while (a)
     {
         if (maximum < a->number)

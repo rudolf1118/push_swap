@@ -19,6 +19,7 @@ void casewithlenfive(t_stack_node **a, t_stack_node **b)
         pb(b, a, false);
     }
 }
+
 void	push_swap(t_stack_node **a, t_stack_node **b)
 {
     t_stack_node *smallest;

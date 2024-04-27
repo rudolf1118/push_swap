@@ -22,10 +22,11 @@ int main (int argc, char **argv) {
             tiny_sort(&a);
         else
             push_swap(&a, &b);
-        /*
-        print_numbersa(a);
-        print_numbersb(b);
-        */
     }
+    /*
+    print_numbersb(b);
+    print_numbersa(a);
+    */
+    free_stack(&b);
     free_stack(&a);
 }

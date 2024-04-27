@@ -92,7 +92,6 @@ void setting_price (t_stack_node *a, t_stack_node *b)
 
 void	init_nodes(t_stack_node *a, t_stack_node *b)
 {
-
     setting_current_position(a);
     setting_current_position(b);
     setting_target(a, b);
