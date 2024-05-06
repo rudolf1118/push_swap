@@ -1,19 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate_command.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rharutyu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/29 14:15:02 by rharutyu          #+#    #+#             */
+/*   Updated: 2024/04/29 14:15:03 by rharutyu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void rotate(t_stack_node **stack)
+void	rotate(t_stack_node **stack)
 {
-    t_stack_node	*last_node;
-    int				len;
+	t_stack_node	*last_node;
+	int				len;
 
-    len = stack_len(*stack);
-    if (NULL == stack || NULL == *stack || 1 == len)
-        return ;
-    last_node = find_last_node(*stack);
-    last_node->next = *stack;
-    *stack = (*stack)->next;
-    (*stack)->prev = NULL;
-    last_node->next->prev = last_node;
-    last_node->next->next = NULL;
+	len = stack_len(*stack);
+	if (!stack || !(*stack) || 1 == len)
+		return ;
+	last_node = find_last_node(*stack);
+	last_node->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
 }
 
 void	ra(t_stack_node **a, bool checker)
